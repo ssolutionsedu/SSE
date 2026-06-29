@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卓樾会教育科技(深圳) - 卓越教育，跨粤未来</title>
+    <meta name="description" content="卓樾会教育科技（深圳）有限公司是一家深耕粤港两地、专注香港优质升学发展的专业教育科技机构。提供香港学校插班、HKDSE补习及跨境学童衔接方案。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans SC"', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            green: '#299E37', // Forest Green
+                            light: '#D2E7A6', // Caper
+                            blue: '#0E80BF',  // Denim
+                            sushi: '#79B73F', // Sushi
+                            dark: '#111827',
+                            gray: '#4B5563'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow-green': '0 0 20px rgba(41, 158, 55, 0.3)',
+                        'glow-blue': '0 0 20px rgba(14, 128, 191, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities and Animations */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #299E37 0%, #0E80BF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #299E37 0%, #0E80BF 100%);
+        }
+
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Custom shape divider */
+        .custom-shape-divider-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+        .custom-shape-divider-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+        }
+        .custom-shape-divider-bottom .shape-fill {
+            fill: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased selection:bg-brand-light selection:text-brand-dark">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <!-- Custom SVG Logo reflecting the brand palette -->
+                    <svg class="h-10 w-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="50" fill="url(#paint0_linear)"/>
+                        <path d="M15 50C15 30 35 15 50 15C60 15 70 20 80 25C65 25 45 35 35 55C30 65 30 75 35 85C20 75 15 65 15 50Z" fill="white"/>
+                        <path d="M50 85C45 70 50 45 75 25C70 45 65 65 50 85Z" fill="#0E80BF"/>
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#299E37"/>
+                                <stop offset="1" stop-color="#79B73F"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl leading-tight text-brand-dark tracking-wide">卓樾会教育</span>
+                        <span class="text-[0.65rem] text-brand-blue font-medium tracking-wider">SHINING SOLUTIONS EDUCATION</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-brand-green font-medium transition-colors">首页</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-green font-medium transition-colors">关于我们</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-green font-medium transition-colors">服务范围</a>
+                    <a href="#contact" class="text-gray-600 hover:text-brand-green font-medium transition-colors">联络我们</a>
+                    <a href="#subscribe" class="bg-brand-green text-white px-5 py-2 rounded-full font-medium hover:bg-brand-sushi transition-all shadow-md hover:shadow-glow-green transform hover:-translate-y-0.5">
+                        订阅我们
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-green focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-brand-light/20">首页</a>
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-brand-light/20">关于我们</a>
+                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-brand-light/20">服务范围</a>
+                <a href="#contact" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-brand-green hover:bg-brand-light/20">联络我们</a>
+                <a href="#subscribe" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-medium bg-brand-green text-white hover:bg-brand-sushi">订阅我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[90vh]">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-brand-light/30 to-white -z-10"></div>
+        <div class="absolute top-20 right-0 w-96 h-96 bg-brand-light rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob -z-10"></div>
+        <div class="absolute top-40 -left-20 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left reveal">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-light/40 text-brand-green text-sm font-semibold mb-6 border border-brand-green/20">
+                        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                        深圳办公室 / 专注于香港升学
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-brand-dark leading-tight mb-6">
+                        卓越教育 <br/>
+                        <span class="gradient-text">跨粤未来</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        卓樾会教育，您身边的香港升学与菁英培养专家。为大湾区及内地家庭提供一站式、高品质的香港升学规划与学术辅导服务，助力每一位学子圆梦名校。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#services" class="px-8 py-4 bg-brand-green text-white rounded-full font-bold text-lg hover:bg-brand-sushi transition-all shadow-lg hover:shadow-glow-green transform hover:-translate-y-1 text-center">
+                            探索核心服务
+                        </a>
+                        <a href="#contact" class="px-8 py-4 bg-white text-brand-blue border-2 border-brand-light rounded-full font-bold text-lg hover:border-brand-blue hover:bg-brand-blue/5 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone"></i> 免费咨询
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image Placeholder -->
+                <div class="relative reveal delay-200 hidden md:block">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] group">
+                        <div class="absolute inset-0 bg-brand-blue/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
+                        <img src="https://placehold.co/800x600/D2E7A6/299E37?text=Education+Excellence\nShining+Solutions" alt="Hong Kong Education" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg z-20 flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+                            <div class="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-white text-xl">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-bold uppercase tracking-wider">成功案例</p>
+                                <p class="text-brand-dark font-black">香港八大名校录取</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Bottom Curve -->
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Side -->
+                <div class="relative reveal order-2 lg:order-1">
+                    <div class="absolute -inset-4 bg-brand-light rounded-3xl transform rotate-3 opacity-50"></div>
+                    <img src="https://placehold.co/600x700/0E80BF/FFFFFF?text=Shenzhen+to+Hong+Kong\nEducational+Bridge" alt="About Us" class="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5]">
+                    
+                    <!-- Overlay stats -->
+                    <div class="absolute -right-8 top-1/4 bg-white p-6 rounded-2xl shadow-soft border border-gray-100 hidden md:block">
+                        <div class="text-4xl font-black text-brand-blue mb-1">100%</div>
+                        <div class="text-sm text-gray-500 font-medium">量身定制方案</div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="reveal delay-200 order-1 lg:order-2">
+                    <h4 class="text-brand-green font-bold tracking-widest uppercase mb-2">关于我们</h4>
+                    <h2 class="text-3xl md:text-4xl font-black text-brand-dark mb-6">深耕粤港两地，专注优质升学</h2>
+                    <div class="w-20 h-1.5 bg-brand-green rounded-full mb-8"></div>
+                    
+                    <div class="space-y-6 text-gray-600 text-lg leading-relaxed">
+                        <p>
+                            <strong class="text-brand-dark">卓樾会教育科技（深圳）有限公司</strong>（简称“卓樾会教育”）是一家深耕粤港两地、专注香港优质升学发展的专业教育科技机构。
+                        </p>
+                        <p>
+                            我们立足深圳，紧密链接香港两地优质教育资源。公司自成立以来，始终秉承<span class="text-brand-blue font-bold">“卓越教育，跨粤未来”</span>的核心理念。
+                        </p>
+                        <p>
+                            致力于为大湾区及内地家庭提供一站式、高品质的香港升学规划与学术辅导服务，助力每一位学子圆梦香港名校。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 flex items-center gap-4 p-4 bg-brand-light/30 rounded-xl border border-brand-green/20">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand-green text-xl shadow-sm flex-shrink-0">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-brand-dark">两地无缝对接</h5>
+                            <p class="text-sm text-gray-500">深圳办公室提供全方位在地支持</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h4 class="text-brand-blue font-bold tracking-widest uppercase mb-2">服务范围</h4>
+                <h2 class="text-3xl md:text-4xl font-black text-brand-dark mb-6">我们的核心业务</h2>
+                <div class="w-20 h-1.5 bg-brand-blue mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 text-lg">为您量身定制方案，全年龄段覆盖，扫除升学障碍</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group reveal">
+                    <div class="w-16 h-16 bg-brand-light/50 rounded-2xl flex items-center justify-center text-brand-green text-3xl mb-6 group-hover:bg-brand-green group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">香港学校插班</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        提供幼稚园、小学、中学全阶段的插班评估、精准选校、面试辅导及全流程申请服务。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 全阶段覆盖</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 精准选校评估</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 面试强化辅导</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group reveal delay-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-brand-blue text-white text-xs font-bold px-3 py-1 rounded-bl-lg">热门项目</div>
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-3xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">HKDSE冲刺补习</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        针对香港中学文凭考试（香港高考），提供全科目系统化培训、考纲解读与名师提分课程。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-blue"></i> 资深名师授课</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-blue"></i> 核心考纲解读</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-blue"></i> 系统化提分</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-soft hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 group reveal delay-200">
+                    <div class="w-16 h-16 bg-brand-light/50 rounded-2xl flex items-center justify-center text-brand-sushi text-3xl mb-6 group-hover:bg-brand-sushi group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-people-arrows"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-4">跨境学童衔接方案</h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        提供学术能力提升、港式校园文化适应以及长期的学业成长陪伴。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 学术能力提升</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 校园文化适应</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-sushi"></i> 长期成长陪伴</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-black text-brand-dark mb-6">我们的四大核心优势</h2>
+                <div class="w-20 h-1.5 bg-brand-green mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Advantage 1 -->
+                <div class="text-center reveal">
+                    <div class="w-24 h-24 mx-auto bg-brand-light/40 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white">
+                        <i class="fa-solid fa-bullhorn text-4xl text-brand-green"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">官方一手资讯</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">实时精准掌握香港教育局与各大名校最新招生动态、插班学额与政策走向。</p>
+                </div>
+                
+                <!-- Advantage 2 -->
+                <div class="text-center reveal delay-100">
+                    <div class="w-24 h-24 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white">
+                        <i class="fa-solid fa-user-tie text-4xl text-brand-blue"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">两地资深师资</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">汇聚多年香港DSE教学经验的本地名师及香港八大名校硕士、博士精英导师团队。</p>
+                </div>
+
+                <!-- Advantage 3 -->
+                <div class="text-center reveal delay-200">
+                    <div class="w-24 h-24 mx-auto bg-brand-light/40 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white">
+                        <i class="fa-solid fa-bullseye text-4xl text-brand-sushi"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">精准定制规划</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">拒绝千篇一律，坚持“一人一案”，根据学生特质与潜力定制最适合的升学方案。</p>
+                </div>
+
+                <!-- Advantage 4 -->
+                <div class="text-center reveal delay-300">
+                    <div class="w-24 h-24 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white">
+                        <i class="fa-solid fa-earth-asia text-4xl text-brand-blue"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-dark mb-3">深港无缝联动</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">立足深圳，辐射港澳，为双城家庭提供高效率、全方位、无时差的在地支持。</p>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center reveal">
+                <h3 class="text-2xl md:text-3xl font-black bg-gradient-brand text-transparent bg-clip-text inline-block">
+                    卓越前行，樾见未来。
+                </h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe" class="py-20 bg-brand-green relative overflow-hidden">
+        <!-- Background shapes -->
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M0 40L40 0H20L0 20M40 40V20L20 40" fill="#ffffff" fill-opacity="1" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern)" />
+            </svg>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">订阅我们，获取最新香港升学资讯</h2>
+            <p class="text-brand-light text-lg mb-10">及时了解招生政策、考试动态及免费讲座活动</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto" onsubmit="event.preventDefault(); alertSubscribed();">
+                <input type="email" placeholder="您的电子邮箱地址" required class="w-full sm:w-2/3 px-6 py-4 rounded-full focus:outline-none focus:ring-4 focus:ring-brand-light/50 text-gray-800 text-lg border-0">
+                <button type="submit" class="w-full sm:w-1/3 px-8 py-4 bg-brand-dark text-white rounded-full font-bold text-lg hover:bg-gray-800 transition-all shadow-lg hover:-translate-y-1">
+                    立即订阅
+                </button>
+            </form>
+            <p id="sub-msg" class="text-white mt-4 hidden font-medium"><i class="fa-solid fa-circle-check text-brand-light mr-2"></i>感谢您的订阅！我们会将最新资讯发送到您的邮箱。</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-[#1A232C] pt-20 pb-10 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & Address -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <!-- Tiny Footer Logo -->
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-brand-green to-brand-blue flex items-center justify-center shadow-lg">
+                            <span class="text-white text-xs font-bold">SSE</span>
+                        </div>
+                        <span class="text-2xl font-bold text-white">卓樾会教育科技<span class="text-brand-green text-sm align-top">(深圳)</span></span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6 leading-relaxed max-w-md">
+                        卓樾会服务有限公司 (SSL) 旗下教育分支机构。为您提供最专业、贴心的香港升学规划服务。
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 text-brand-green">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-medium mb-1">地址信息</h5>
+                                <p class="text-sm text-gray-400">深圳市福田区福田街道福安社区<br>福华一路1号深圳大中华国际交易广场2107C</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-medium mb-1">联系电话</h5>
+                                <p class="text-lg text-white font-bold tracking-wider">+86 13143699180</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6 border-b border-gray-700 pb-2">快速链接</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-2 text-xs"></i>首页</a></li>
+                        <li><a href="#about" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-2 text-xs"></i>关于我们</a></li>
+                        <li><a href="#services" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-2 text-xs"></i>服务范围</a></li>
+                        <li><a href="#contact" class="hover:text-brand-green transition-colors"><i class="fa-solid fa-angle-right mr-2 text-xs"></i>联络我们</a></li>
+                    </ul>
+                </div>
+
+                <!-- Wechat/QR Area Placeholder -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6 border-b border-gray-700 pb-2">关注微信公众号</h4>
+                    <div class="bg-white p-2 rounded-lg inline-block">
+                        <!-- Placeholder for WeChat QR Code -->
+                        <img src="https://placehold.co/120x120/EEEEEE/999999?text=WeChat\nQR+Code" alt="WeChat QR Code" class="w-32 h-32 object-cover rounded">
+                    </div>
+                    <p class="text-xs text-gray-400 mt-3">扫码添加专属升学顾问</p>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-sm text-gray-500 text-center md:text-left flex flex-col sm:flex-row items-center gap-2">
+                    <span>&copy; <span id="year"></span> 卓樾会教育科技(深圳)有限公司 版权所有</span>
+                    <span class="hidden sm:inline text-gray-700">|</span>
+                    <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener noreferrer" class="hover:text-brand-light transition-colors duration-300">
+                        粤ICP备2026083991号
+                    </a>
+                </div>
+                <div class="flex gap-4 text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-weixin text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-weibo text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Styling on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Stop observing once revealed
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Custom function to replace default alert() for subscription
+        function alertSubscribed() {
+            const msg = document.getElementById('sub-msg');
+            msg.classList.remove('hidden');
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+            
+            // Clear input
+            document.querySelector('#subscribe form input[type="email"]').value = '';
+        }
+    </script>
+</body>
+</html>
